@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Camera _mainCamera;
     bool alive = true;
     public float speed = 5f;
     [SerializeField] Rigidbody rb;
@@ -13,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _mainCamera = Camera.main;
     }
     private void FixedUpdate()
     {
@@ -21,9 +22,12 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
-        Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier;
-        rb.MovePosition(rb.position + forwardMove + horizontalMove);
+        Vector3 movement = GetMoveSpeed(_mainCamera.transform.rotation.x, _mainCamera.transform.rotation.y);
+       
+        transform.position += (transform.forward + movement) / 15;
+        // Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
+        // Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier;
+        // rb.MovePosition(rb.position + forwardMove + horizontalMove);
     }
     // Update is called once per frame
     void Update()
@@ -33,6 +37,23 @@ public class PlayerMovement : MonoBehaviour
         {
             Die();
         }
+    }
+    private Vector3 GetMoveSpeed(float x, float y)
+
+    {
+
+        // create our movement vector value based off of where we're looking at with a cap
+        float xMove = Mathf.Min(Mathf.Abs(y*8), 3);
+     
+        float yMove = Mathf.Min(Mathf.Abs(x*8), 3);
+        // Figure out which direction our plane should be turning to
+        if (x >= 0)
+            yMove *= -1;
+        if (y < 0)
+            xMove *= -1;
+
+        return new Vector3(xMove, yMove, 0f);
+
     }
     public void Die()
     {
