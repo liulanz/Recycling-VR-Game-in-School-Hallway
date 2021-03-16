@@ -23,7 +23,7 @@ public class GroundTile : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         groundSpawner.SpawnTile(true);
-        Destroy(gameObject, 4); //destory the object after 4 seconds
+        Destroy(gameObject, 40);
     }
 
     // Update is called once per frame
@@ -36,68 +36,92 @@ public class GroundTile : MonoBehaviour
         //choose a random point to spawn the obstacle
         int obstacleSpawnIndex = Random.Range(2, 5);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
-
+        int randomTrash;
+        GameObject temp;
         //spawn the obstacle at the position
-        Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
-    }
-    Vector3 GetRandomPointInCollider(Collider collider)
-    {
-        Vector3 point = new Vector3(
-            Random.Range(collider.bounds.min.x, collider.bounds.max.x),
-            Random.Range(collider.bounds.min.y, collider.bounds.max.y),
-            Random.Range(collider.bounds.min.z, collider.bounds.max.z)
-         );
-        if (point != collider.ClosestPoint(point)) // if point is generated outside of collider gengerate a new one
+        if (obstacleSpawnIndex == 2)
         {
-            point = GetRandomPointInCollider(collider);
+            randomTrash = Random.Range(0, greenTrashPrefab.Length);
+
+            Instantiate(greenTrashPrefab[randomTrash], spawnPoint.position, Quaternion.identity, transform);
+
         }
-        point.y = -4f;
-        return point;
+        else if (obstacleSpawnIndex == 3)
+        {
+            randomTrash = Random.Range(0, blueTrashPrefab.Length);
+
+            Instantiate(blueTrashPrefab[randomTrash], spawnPoint.position, Quaternion.identity, transform);
+
+        }
+        else 
+        {
+            randomTrash = Random.Range(0, blackTrashPrefab.Length);
+         
+            Instantiate(blackTrashPrefab[randomTrash], spawnPoint.position, Quaternion.identity, transform);
+
+
+        }
+
 
     }
-    public void SpawnCoins()
-    {
-        int coinsToSpawn = 4;
-        for(int i = 0; i <coinsToSpawn; i++)
-        {
-            GameObject temp = Instantiate(coinPrefab);
-            temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
-        }
-    }
+    //Vector3 GetRandomPointInCollider(Collider collider)
+    //{
+    //    Vector3 point = new Vector3(
+    //        Random.Range(collider.bounds.min.x, collider.bounds.max.x),
+    //        Random.Range(collider.bounds.min.y, collider.bounds.max.y),
+    //        Random.Range(collider.bounds.min.z, collider.bounds.max.z)
+    //     );
+    //    if (point != collider.ClosestPoint(point)) // if point is generated outside of collider gengerate a new one
+    //    {
+    //        point = GetRandomPointInCollider(collider);
+    //    }
+    //    point.y = -3.7f;
+    //    return point;
+
+    //}
+    //public void SpawnCoins()
+    //{
+    //    int coinsToSpawn = 4;
+    //    for(int i = 0; i <coinsToSpawn; i++)
+    //    {
+    //        GameObject temp = Instantiate(coinPrefab);
+    //        temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
+    //    }
+    //}
  
-    public void SpawnBlueTrash()
-    {
-        int randomTrash = Random.Range(0, blueTrashPrefab.Length);
-        int blueTrashToSpawn = 2;
-        for (int i = 0; i < blueTrashToSpawn; i++)
-        {
-            GameObject temp = Instantiate(blueTrashPrefab[randomTrash]);
-            temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
-        }
-    }
-    public void SpawnBlackTrash()
-    {
-        int randomTrash = Random.Range(0, blackTrashPrefab.Length);
-        int blackTrashToSpawn = 2;
-        for (int i = 0; i < blackTrashToSpawn; i++)
-        {
+    //public void SpawnBlueTrash()
+    //{
+    //    int randomTrash = Random.Range(0, blueTrashPrefab.Length);
+    //    int blueTrashToSpawn = 2;
+    //    for (int i = 0; i < blueTrashToSpawn; i++)
+    //    {
+    //        GameObject temp = Instantiate(blueTrashPrefab[randomTrash]);
+    //        temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
+    //    }
+    //}
+    //public void SpawnBlackTrash()
+    //{
+    //    int randomTrash = Random.Range(0, blackTrashPrefab.Length);
+    //    int blackTrashToSpawn = 2;
+    //    for (int i = 0; i < blackTrashToSpawn; i++)
+    //    {
             
-            GameObject temp = Instantiate(blackTrashPrefab[randomTrash]);
+    //        GameObject temp = Instantiate(blackTrashPrefab[randomTrash]);
 
-            temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
-        }
-    }
-    public void SpawnGreenTrash()
-    {
-        int randomTrash = Random.Range(0, greenTrashPrefab.Length);
-        int greenTrashToSpawn = 2;
-        for (int i = 0; i < greenTrashToSpawn; i++)
-        {
+    //        temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
+    //    }
+    //}
+    //public void SpawnGreenTrash()
+    //{
+    //    int randomTrash = Random.Range(0, greenTrashPrefab.Length);
+    //    int greenTrashToSpawn = 2;
+    //    for (int i = 0; i < greenTrashToSpawn; i++)
+    //    {
 
-            GameObject temp = Instantiate(greenTrashPrefab[randomTrash]);
+    //        GameObject temp = Instantiate(greenTrashPrefab[randomTrash]);
 
-            temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
-        }
-    }
+    //        temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
+    //    }
+    //}
 
 }

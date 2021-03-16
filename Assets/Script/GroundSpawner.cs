@@ -15,10 +15,10 @@ public class GroundSpawner : MonoBehaviour
         if (spawnItems)
         {
             temp.GetComponent<GroundTile>().SpawnObstacle();
-            temp.GetComponent<GroundTile>().SpawnBlackTrash();
-            temp.GetComponent<GroundTile>().SpawnCoins();
-            temp.GetComponent<GroundTile>().SpawnBlueTrash();
-            temp.GetComponent<GroundTile>().SpawnGreenTrash();
+           // temp.GetComponent<GroundTile>().SpawnBlackTrash();
+           // temp.GetComponent<GroundTile>().SpawnCoins();
+          //  temp.GetComponent<GroundTile>().SpawnBlueTrash();
+          //  temp.GetComponent<GroundTile>().SpawnGreenTrash();
 
 
         }
