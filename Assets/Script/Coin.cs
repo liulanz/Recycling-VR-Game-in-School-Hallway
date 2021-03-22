@@ -5,6 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     [SerializeField] float turnSpeed = 90f;
+    public AudioClip collectSound;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Obstacle>() != null)
@@ -18,9 +19,11 @@ public class Coin : MonoBehaviour
         {
             return;
         }
-        GameManager.inst.IncrementScore(); 
-
         // add to the player's score
+        GameManager.inst.IncrementScore();
+        // play audio
+        AudioSource.PlayClipAtPoint(collectSound, transform.position);
+        
         //destroy this coin object
         Destroy(gameObject);
     }

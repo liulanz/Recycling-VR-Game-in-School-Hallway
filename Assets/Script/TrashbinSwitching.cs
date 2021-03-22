@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using Google.XR.Cardboard;
 public class TrashbinSwitching : MonoBehaviour
 {
     public int selectedBin = 0;
@@ -13,15 +13,26 @@ public class TrashbinSwitching : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         int previousSelectedBin = selectedBin;
-        if (Input.GetKeyDown(KeyCode.Space))
+       
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             if (selectedBin >= transform.childCount - 1)
                 selectedBin = 0;
             else
                 selectedBin++;
         }
-        if(previousSelectedBin != selectedBin)
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (selectedBin >= transform.childCount - 1)
+                selectedBin = 0;
+            else
+                selectedBin++;
+        }
+#endif
+        if (previousSelectedBin != selectedBin)
         {
             SelectBin();
         }

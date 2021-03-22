@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SpawnTrigger
   - blueTrash
+  - trash
   layers:
   - Default
   - TransparentFX
