@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: bee7d453935998e41b8f148ff5812788
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - disappearEffect: {fileID: 6520471036659090153, guid: 0429e1f197d2acd4dba663c2fe25ae8f,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
