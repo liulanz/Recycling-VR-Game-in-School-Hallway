@@ -43,25 +43,30 @@ public class GroundTile : MonoBehaviour
         {
             randomTrash = Random.Range(0, greenTrashPrefab.Length);
 
-            Instantiate(greenTrashPrefab[randomTrash], spawnPoint.position, Quaternion.identity, transform);
+            temp =Instantiate(greenTrashPrefab[randomTrash], spawnPoint.position, Quaternion.identity, transform);
+            var angles = greenTrashPrefab[randomTrash].transform.eulerAngles;
+            temp.transform.Rotate(angles.x,angles.y, angles.z);
 
         }
         else if (obstacleSpawnIndex == 3)
         {
             randomTrash = Random.Range(0, blueTrashPrefab.Length);
 
-            Instantiate(blueTrashPrefab[randomTrash], spawnPoint.position, Quaternion.identity, transform);
-
+            temp =Instantiate(blueTrashPrefab[randomTrash], spawnPoint.position, Quaternion.identity, transform);
+            var angles = blueTrashPrefab[randomTrash].transform.eulerAngles;
+            temp.transform.Rotate(angles.x, angles.y, angles.z);
         }
         else 
         {
             randomTrash = Random.Range(0, blackTrashPrefab.Length);
          
-            Instantiate(blackTrashPrefab[randomTrash], spawnPoint.position, Quaternion.identity, transform);
-
+            temp = Instantiate(blackTrashPrefab[randomTrash], spawnPoint.position, Quaternion.identity, transform);
+            var angles = blackTrashPrefab[randomTrash].transform.eulerAngles;
+            temp.transform.Rotate(angles.x, angles.y, angles.z);
 
         }
-
+       
+       
 
     }
 

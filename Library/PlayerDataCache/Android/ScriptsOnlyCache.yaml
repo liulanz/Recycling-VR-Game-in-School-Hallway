@@ -24,10 +24,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -96,39 +94,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11856}
     - Class: 114
-      Script: {instanceID: 12080}
-    - Class: 114
       Script: {instanceID: 12082}
     - Class: 114
-      Script: {instanceID: 12384}
+      Script: {instanceID: 12086}
     - Class: 114
-      Script: {instanceID: 12622}
+      Script: {instanceID: 12388}
     - Class: 114
-      Script: {instanceID: 12642}
+      Script: {instanceID: 12626}
     - Class: 114
-      Script: {instanceID: 13040}
+      Script: {instanceID: 12646}
     - Class: 114
-      Script: {instanceID: 13044}
+      Script: {instanceID: 13042}
     - Class: 114
-      Script: {instanceID: 13086}
+      Script: {instanceID: 13046}
     - Class: 114
-      Script: {instanceID: 13188}
+      Script: {instanceID: 13088}
     - Class: 114
-      Script: {instanceID: 13234}
+      Script: {instanceID: 13190}
     - Class: 114
-      Script: {instanceID: 13268}
+      Script: {instanceID: 13236}
     - Class: 114
-      Script: {instanceID: 13286}
+      Script: {instanceID: 13270}
     - Class: 114
-      Script: {instanceID: 13476}
+      Script: {instanceID: 13288}
     - Class: 114
-      Script: {instanceID: 13602}
+      Script: {instanceID: 13478}
     - Class: 114
-      Script: {instanceID: 13686}
+      Script: {instanceID: 13604}
     - Class: 114
-      Script: {instanceID: 13690}
+      Script: {instanceID: 13688}
     - Class: 114
-      Script: {instanceID: 13700}
+      Script: {instanceID: 13692}
+    - Class: 114
+      Script: {instanceID: 13702}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
