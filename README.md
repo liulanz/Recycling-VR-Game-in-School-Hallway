@@ -15,6 +15,7 @@ the player will constantly moving forward. If the player looks up, it would stop
 
 ### Demo
 <img width=600px src="./demos/game_demo.gif">
+
 ### Unity Version
 - **2019.4.19f1**
 
