@@ -7,16 +7,33 @@ public class VRlookWalk : MonoBehaviour
 {
     public static VRlookWalk player;
     bool alive = true;
+    bool played = false;
     public Transform vrCamera;
     public float toggleAngle = 20.0f;
     public float speed = 5.0f;
     public bool moveForward;
     public AudioClip gameoverSound;
     private CharacterController cc;
+    [SerializeField] GameObject hands;
+    public GameOver gameover;
+    [SerializeField] Canvas score;
+    public void GameOverPage()
+    {
+        score.enabled = false;
+        hands.SetActive(false);
+        gameover.Setup(GameManager.inst.score);
+        Invoke("MainMenu", 4.0f);
+
+    }
+
 
     // Use this for initialization
     void Start()
     {
+     
+        score.enabled = true;
+        hands.SetActive(true);
+        gameover.hide();
         alive = true;
         cc = GetComponent<CharacterController>();
     }
@@ -27,7 +44,7 @@ public class VRlookWalk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!alive)
+        if (!alive )
         {
             return;
         }
@@ -49,28 +66,35 @@ public class VRlookWalk : MonoBehaviour
         if (moveForward)
         {
             Vector3 forward = vrCamera.TransformDirection(Vector3.forward);
-
             cc.SimpleMove(forward * speed);
         }
+       
         
     }
     public void PlayerDie()
     {
         alive = false;
-        Die();
+         Die();
     }
     void Die()
     {
-        AudioSource.PlayClipAtPoint(gameoverSound, transform.position, 0.5f);
+        if (!played)
+        {
+            AudioSource.PlayClipAtPoint(gameoverSound, transform.position, 0.2f);
+            Invoke("GameOverPage", 1.0f);
+            played = true;
+        }
+        //  GameOver();
         //call restart after 1.5 sec
-        Invoke("Restart", 1.5f);
+
+       
 
 
     }
-    void Restart()
+    void MainMenu()
     {
-        // restart the game
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+       
+       SceneManager.LoadScene("MenuScene");
     
-    }
+   }
 }

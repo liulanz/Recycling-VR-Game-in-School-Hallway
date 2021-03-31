@@ -19,7 +19,7 @@ public class BlackTrash : MonoBehaviour
         //check that the object we collided with is the player
         if (other.gameObject.tag != "TrashbinBlack")
         {
-            Debug.Log(other.gameObject.name);
+           // Debug.Log(other.gameObject.name);
             VRlookWalk.player.PlayerDie();
             return;
         }

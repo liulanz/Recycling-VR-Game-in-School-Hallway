@@ -10,6 +10,7 @@ TagManager:
   - TrashbinBlack
   - TrashbinGreen
   - TrashbinBlue
+  - restartbutton
   layers:
   - Default
   - TransparentFX

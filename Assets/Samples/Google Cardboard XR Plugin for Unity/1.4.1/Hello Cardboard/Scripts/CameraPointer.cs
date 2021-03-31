@@ -17,16 +17,12 @@
 //-----------------------------------------------------------------------
 
 using System.Collections;
-
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-
 
 /// <summary>
 /// Sends messages to gazed GameObject.
 /// </summary>
-public class CameraPointer : MonoBehaviour 
+public class CameraPointer : MonoBehaviour
 {
     private const float _maxDistance = 10;
     private GameObject _gazedAtObject = null;
@@ -45,22 +41,26 @@ public class CameraPointer : MonoBehaviour
             if (_gazedAtObject != hit.transform.gameObject)
             {
                 // New GameObject.
-                _gazedAtObject?.SendMessage("OnPointerExit");
+                //   _gazedAtObject?.SendMessage("OnPointerExit");
+               // if (_gazedAtObject == null) Debug.Log("OnPointerExit");
                 _gazedAtObject = hit.transform.gameObject;
-                _gazedAtObject.SendMessage("OnPointerEnter");
+                //if (_gazedAtObject != null) Debug.Log(_gazedAtObject.name);
+              //  if (_gazedAtObject.tag == "restartbutton") Debug.Log("-----OnPointerEnter");
+                //   _gazedAtObject.SendMessage("OnPointerEnter");
             }
         }
         else
         {
             // No GameObject detected in front of the camera.
-            _gazedAtObject?.SendMessage("OnPointerExit");
+            // _gazedAtObject?.SendMessage("OnPointerExit");
+          //  if(_gazedAtObject==null) Debug.Log("OnPointerExit");
             _gazedAtObject = null;
         }
 
         // Checks for screen touches.
         if (Google.XR.Cardboard.Api.IsTriggerPressed)
         {
-            _gazedAtObject?.SendMessage("OnPointerClick");
+         //   _gazedAtObject?.SendMessage("OnPointerClick");
         }
     }
 }

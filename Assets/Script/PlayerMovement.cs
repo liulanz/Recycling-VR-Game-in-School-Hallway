@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float toggleAngle = 30.0f;
     public float speed = 5.0f;
     public bool moveForward;
-    
+   
+
 
     //private CharacterController cc;
     [SerializeField] Rigidbody rb;
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveForward)
         {
+            
             Vector3 forward = vrCamera.TransformDirection(Vector3.forward);
 
             //cc.SimpleMove(forward * speed);

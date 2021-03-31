@@ -14,6 +14,10 @@ public class LidAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
 
     }
+    void Awake()
+    {
+        animate = false;
+    }
 
     void Update()
     {
