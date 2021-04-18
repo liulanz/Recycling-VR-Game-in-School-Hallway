@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GreenTrash : MonoBehaviour
 {
+    
     [SerializeField] float turnSpeed = 90f;
     public AudioClip collectSound;
     [SerializeField] ParticleSystem disappearEffect = null;
@@ -18,10 +19,13 @@ public class GreenTrash : MonoBehaviour
         }
 
         //check that the object we collided with is the player
-        if (other.gameObject.tag != "TrashbinGreen")
-        {
-           // Debug.Log(other.gameObject.name);
-            VRlookWalk.player.PlayerDie();
+        if (other.gameObject.tag != "TrashbinGreen" )
+         {
+            //  Debug.Log(other.gameObject.name);
+
+            
+             Destroy(gameObject);
+            VRlookWalk.player.lossLife();
 
             return;
         }

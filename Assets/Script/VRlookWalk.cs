@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class VRlookWalk : MonoBehaviour
 {
+    public HealthBarController healthbar;
     public static VRlookWalk player;
     bool alive = true;
     bool played = false;
@@ -41,6 +42,11 @@ public class VRlookWalk : MonoBehaviour
     {
         player = this;
     }
+    public void lossLife()
+    {
+        healthbar.decreaseHealth(24);
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -48,6 +54,7 @@ public class VRlookWalk : MonoBehaviour
         {
             return;
         }
+        
         // player falls off the ground
         if (transform.position.y < -5)
         {

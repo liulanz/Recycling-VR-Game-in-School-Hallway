@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BlueTrash : MonoBehaviour
 {
+    
     [SerializeField] float turnSpeed = 90f;
     public AudioClip collectSound;
     [SerializeField] ParticleSystem disappearEffect = null;
@@ -19,11 +20,16 @@ public class BlueTrash : MonoBehaviour
         //check that the object we collided with is the player
         if (other.gameObject.tag != "TrashbinBlue")
         {
-          //  Debug.Log(other.gameObject.name);
-            VRlookWalk.player.PlayerDie();
+            //  Debug.Log(other.gameObject.name);
+            Destroy(gameObject);
+            VRlookWalk.player.lossLife();
+            //   Debug.Log(other.gameObject.name);
+            
+
             return;
         }
-        else{ 
+        else 
+        { 
             // add to the player's score
             GameManager.inst.IncrementScore();
             Instantiate(disappearEffect, transform.position, Quaternion.identity);

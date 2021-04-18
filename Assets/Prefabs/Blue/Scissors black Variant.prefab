@@ -26,6 +26,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2353505f71ea7db448a9e952f712df84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbar: {fileID: 422730742549996637, guid: 1a9123fd459458743af9c912c58e2521,
+    type: 3}
   turnSpeed: 90
   collectSound: {fileID: 8300000, guid: c3b3d6b534cb8dc4787cb36dad30d2a9, type: 3}
   disappearEffect: {fileID: 6520471036659090153, guid: 0429e1f197d2acd4dba663c2fe25ae8f,

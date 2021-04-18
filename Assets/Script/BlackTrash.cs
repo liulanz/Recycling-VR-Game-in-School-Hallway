@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlackTrash : MonoBehaviour
 {
     [SerializeField] float turnSpeed = 90f;
+
     public AudioClip collectSound;
     [SerializeField] ParticleSystem disappearEffect = null;
 
@@ -17,13 +18,18 @@ public class BlackTrash : MonoBehaviour
         }
 
         //check that the object we collided with is the player
-        if (other.gameObject.tag != "TrashbinBlack")
+        if (other.gameObject.tag != "TrashbinBlack" )
         {
-           // Debug.Log(other.gameObject.name);
-            VRlookWalk.player.PlayerDie();
+            // Debug.Log(other.gameObject.name);
+            // VRlookWalk.player.PlayerDie();
+            Destroy(gameObject);
+            VRlookWalk.player.lossLife();
+            //  Debug.Log(other.gameObject.name);
+            
+
             return;
         }
-        else
+        else 
         {
             
             // add to the player's score
