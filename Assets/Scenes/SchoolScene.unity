@@ -844,7 +844,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7, y: 389.2}
+  m_AnchoredPosition: {x: 7, y: 358.3}
   m_SizeDelta: {x: 532.5564, y: 335.0236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1370733867
@@ -2205,6 +2205,7 @@ MonoBehaviour:
   speed: 5
   moveForward: 0
   gameoverSound: {fileID: 8300000, guid: d2673c7ad5ba26d48aa38457691eff47, type: 3}
+  wrongbinSound: {fileID: 8300000, guid: c5963d45900255c40a64bd9f95d7983a, type: 3}
   hands: {fileID: 1737902707}
   gameover: {fileID: 2037420970}
   score: {fileID: 1786655679}

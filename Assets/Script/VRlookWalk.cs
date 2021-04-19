@@ -14,6 +14,7 @@ public class VRlookWalk : MonoBehaviour
     public float speed = 5.0f;
     public bool moveForward;
     public AudioClip gameoverSound;
+    public AudioClip wrongbinSound;
     private CharacterController cc;
     [SerializeField] GameObject hands;
     public GameOver gameover;
@@ -31,7 +32,6 @@ public class VRlookWalk : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-     
         score.enabled = true;
         hands.SetActive(true);
         gameover.hide();
@@ -45,6 +45,7 @@ public class VRlookWalk : MonoBehaviour
     public void lossLife()
     {
         healthbar.decreaseHealth(24);
+        AudioSource.PlayClipAtPoint(wrongbinSound, transform.position);
 
     }
     // Update is called once per frame
