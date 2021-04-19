@@ -14,7 +14,7 @@ The player can look left or right to change the directions. Whenever the player 
 the player will constantly moving forward. If the player looks up, it would stop moving.
 
 ### Demo
-<img width=600px src="./demos/game_demo.gif">
+<img width=600px src="./demos/demo.gif">
 
 ### Unity Version
 - **2019.4.19f1**
