@@ -5,8 +5,9 @@ A virtual reality game that is build on Android using google cardboard sdk
 The hallway is designed to be endless. Once the player triggers an invisible game object at the end of the hallway, 
 it will initialize a new hallway and connects to the very end. The hallway in the very beginning will be destroyed after a certain time 
 period to avoid too many game objects existing at the same time. The trash are rendered randomly for each category. 
-There are green, blue, and black colors on the floor indicating the  correct trash bin color that trash. For example, 
-the trash that appears on the top of blue section floor should be collected with blue trash bin.
+There are green, blue, and black colors on the floor indicating the correct trash bin color that trash. For example, 
+the trash that appears on the top of blue section floor should be collected with blue trash bin. The score and the health bar are displayed
+on top of the screen. Correct, error, and game over audios will be played during the game.
 
 ### How to Play?
 The game is controlled via head-tracking using **Google cardboard VR**. The player can press the button to switch trash bins. 
